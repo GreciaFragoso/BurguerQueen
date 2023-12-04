@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { TakingOrdersRoutingModule } from './taking-orders-routing.module';
 import { SharedModule } from '@shared/shared.module';
-import { KitchenOrdersComponent } from '@modules/kitchen-orders/pages/kitchen-orders/kitchen-orders.component';
+import { TakingOrdersComponent } from './pages/taking-orders/taking-orders.component';
 
 
 @NgModule({
-  declarations: [ KitchenOrdersComponent ],
+  declarations: [ TakingOrdersComponent ],
   imports: [
     CommonModule,
     TakingOrdersRoutingModule,

@@ -10,6 +10,6 @@ export class HeaderComponent {
   constructor( private router: Router) {}
 
   showHeader(): boolean {
-    return this.router.url !== '/';
+    return (this.router.url !== '' && this.router.url !== 'login');;
   }
 }

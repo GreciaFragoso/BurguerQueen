@@ -10,6 +10,6 @@ export class FooterComponent {
   constructor(private router: Router) {}
 
   showFooter(): boolean {
-    return this.router.url !== '/';
+    return (this.router.url !== '' && this.router.url !== 'login');
   }
 }
