@@ -7,9 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  selectedButton: string | null = 'order';
   constructor( private router: Router) {}
 
   showHeader(): boolean {
-    return (this.router.url !== '' && this.router.url !== 'login');;
+    return (this.router.url !== '' && this.router.url !== 'login');
+  }
+
+  navigateTo(path: string){
+    if(this.router.url === path){
+      return;
+    }
+    this.router.navigate([path]);
+    this.selectedButton = path;
+  }
+
+  changeColor():boolean {
+    return (this.router.url === 'order')
   }
 }

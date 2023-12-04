@@ -1,5 +1,13 @@
 @import '../../../styles.scss';
 
-.father-container {
+header {
     background-color: $background-color;
+}
+
+button {
+    background-color: $box-shadow-color;
+}
+
+button.selected {
+    background-color: $bubblegum-color;
 }

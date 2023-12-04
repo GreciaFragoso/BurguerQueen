@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // LazyLoading
-// import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
-// import { LoginModule } from '@modules/login/login.module';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: '',
     loadChildren: () => import('./modules/login/login.module').then((m) => m.LoginModule)
@@ -22,19 +21,10 @@ const routes: Routes = [
     path: 'ready-to-serve',
     loadChildren: () => import('./modules/ready2serve/ready2serve.module').then((m) => m.Ready2serveModule)
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
-  // {
-  //   path: '',
-  //   component: SkeletonComponent,
-  //   children: [
-  //     {
-  //       path: '',
-  //       loadChildren: () => import('./modules/login/login.module').then((m): typeof LoginModule => m.LoginModule),
-  //     },
-  //     { path: '**', redirectTo: '', pathMatch: 'full' },
-  //   ],
-  // },
-  // { path: '**', redirectTo: '', pathMatch: 'full'},
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
+  // { path: '', 
+  //   redirectTo: 'login',
+  //   pathMatch: 'full' },
 ];
 
 @NgModule({

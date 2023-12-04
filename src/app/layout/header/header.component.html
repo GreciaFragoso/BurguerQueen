@@ -1,6 +1,6 @@
 <header *ngIf = 'showHeader()'>
-    <button>Tomar orden</button>
-    <button>Ver órdenes</button>
-    <button>Cerrar sesión</button>
+    <button (click)="navigateTo('order')" [ngClass]="{ selected: selectedButton === 'order'}">Tomar orden</button>
+    <button (click)="navigateTo('ready-to-serve')" [ngClass]="{ selected: selectedButton === 'ready-to-serve'}">Ver órdenes</button>
+    <button (click)="navigateTo('login')" [ngClass]="{ selected: selectedButton === 'login'}">Cerrar sesión</button>
     <img src = '../../../assets/bq-logo.png'>
 </header>
