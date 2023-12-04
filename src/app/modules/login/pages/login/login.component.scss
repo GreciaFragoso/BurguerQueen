@@ -1,24 +1,61 @@
+@import '../../../../../styles.scss';
+
 .father-container {
-    background-color: #6FDAFF;
+    background-color: $background-color;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
 }
 
 .form {
-    width: 60%;
+    width: 50%;
     background-color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    // justify-content: center;
     align-items: center;
     border-radius: 20px;
-    height: 80%;
+    height: 60%;
+    box-shadow: 0 0 30px 10px $box-shadow-color;
+    gap: 30px;
+    padding: 20px;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    height: 80%;
+    justify-content: center;
+    align-items: center;
+    // width: 60%;
+    // height: 80%;
+    gap: 10px;
+}
+
+input {
+    height: 25px;
+    border-radius: 10px;
+    border-color: gray;
+    border-width: 1px;
+}
+
+button {
+    background-color: $box-shadow-color;
+    border-radius: 10px;
+    border-color: $box-shadow-color;
+    color: white;
+    font-weight: bold;
+    height: 40px;
+    width: 140px;
+}
+
+.paragraph {
+    font-size: 0.8rem;
+}
+
+img {
+    width: 70%;
 }

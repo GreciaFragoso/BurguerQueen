@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+$background-color: #6FDAFF;
+$box-shadow-color: #C2183F;
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+$regular-font: 'Open Sans';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $regular-font, Arial, Helvetica, sans-serif;
+}
