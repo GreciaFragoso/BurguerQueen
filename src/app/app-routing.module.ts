@@ -8,43 +8,46 @@ import { TakingOrdersModule } from './modules/taking-orders/taking-orders.module
 // LazyLoading
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  {
-    path: '',
-    loadChildren: () => import('./modules/login/login.module').then((m) => m.LoginModule)
-  },
-  {
-    path: 'order',
-    loadChildren: () => import('./modules/taking-orders/taking-orders.module').then((m) => m.TakingOrdersModule)
-  },
-  {
-    path: 'kitchen',
-    loadChildren: () => import('./modules/kitchen-orders/kitchen-orders.module').then((m) => m.KitchenOrdersModule)
-  },
-  {
-    path: 'ready-to-serve',
-    loadChildren: () => import('./modules/ready2serve/ready2serve.module').then((m) => m.Ready2serveModule)
-  },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },
-];
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
   // {
   //   path: '',
   //   loadChildren: () => import('./modules/login/login.module').then((m) => m.LoginModule)
   // },
-  // { path: '', component: SkeletonComponent,
-  //   children: [
-  //     { path: 'order',
-  //       loadChildren: () => import('./modules/taking-orders/taking-orders.module').then((m) => m.TakingOrdersModule)},
-  //     {
-  //       path: 'kitchen',
-  //       loadChildren: () => import('./modules/kitchen-orders/kitchen-orders.module').then((m) => m.KitchenOrdersModule)
-  //     },
-  //     {
-  //       path: 'ready-to-serve',
-  //      loadChildren: () => import('./modules/ready2serve/ready2serve.module').then((m) => m.Ready2serveModule)
-  //     }
-  //   ] }
+  // {
+  //   path: 'order',
+  //   loadChildren: () => import('./modules/taking-orders/taking-orders.module').then((m) => m.TakingOrdersModule)
+  // },
+  // {
+  //   path: 'kitchen',
+  //   loadChildren: () => import('./modules/kitchen-orders/kitchen-orders.module').then((m) => m.KitchenOrdersModule)
+  // },
+  // {
+  //   path: 'ready-to-serve',
+  //   loadChildren: () => import('./modules/ready2serve/ready2serve.module').then((m) => m.Ready2serveModule)
+  // },
+  // { path: '**', redirectTo: 'login', pathMatch: 'full' },
+// ];
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'login',
+    loadChildren: () => import('./modules/login/login.module').then((m) => m.LoginModule)
+  },
+  { path: 'home', 
+    component: SkeletonComponent,
+    children: [
+      { path: 'order',
+        loadChildren: () => import('@modules/taking-orders/taking-orders.module').then((m) => m.TakingOrdersModule)},
+      {
+        path: 'kitchen',
+        loadChildren: () => import('@modules/kitchen-orders/kitchen-orders.module').then((m) => m.KitchenOrdersModule)
+      },
+      {
+        path: 'ready-to-serve',
+       loadChildren: () => import('./modules/ready2serve/ready2serve.module').then((m) => m.Ready2serveModule)
+      }
+    ] },
+    { path: '**', redirectTo: '', pathMatch: 'full' },
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })], // objeto useHash añadido para LazyLoading

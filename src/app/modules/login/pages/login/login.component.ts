@@ -21,7 +21,7 @@ export class LoginComponent {
   }
 
   Login(){
-    this.router.navigate(['order']);
+    this.router.navigate(['home/order']);
   }
 
   ngOnInit(){

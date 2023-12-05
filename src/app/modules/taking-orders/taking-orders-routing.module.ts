@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { TakingOrdersComponent } from './pages/taking-orders/taking-orders.component';
 import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
 
-const routes: Routes = [{ path: 'order', component: TakingOrdersComponent }]
-                        // {path: 'order', loadChildren: () => import('./taking-orders.module').then(m => m.TakingOrdersModule)}];
+const routes: Routes = [
+  { path: '', component: TakingOrdersComponent }]
+  // {path: 'order', loadChildren: () => import('./taking-orders.module').then(m => m.TakingOrdersModule)}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

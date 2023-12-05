@@ -1,5 +1,36 @@
+@import '../../../../../styles.scss';
+
 .father-container {
-    height: 90%;
-    width: 90%;
+    height: 62vh;
+    width: 85%;
     background-color: white;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input {
+    width: 200px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+button {
+    background-color: $box-shadow-color;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 0.5rem;
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+button.selected {
+    background-color: $bubblegum-color;
 }
