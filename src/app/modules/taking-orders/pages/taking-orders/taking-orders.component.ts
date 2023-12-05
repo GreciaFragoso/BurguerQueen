@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./taking-orders.component.scss']
 })
 export class TakingOrdersComponent {
+  items = [] = ['Hamburguesa sencilla', 'Hamburguesa doble', 'Papas fritas', 'Aros de cebolla', 'Agua 500 ml', 'Agua 750 ml'];
 
 }

@@ -2,12 +2,25 @@
 
 header {
     background-color: $background-color;
+    display: flex;
+    flex-direction: row;
 }
 
 button {
     background-color: $box-shadow-color;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 0.5rem;
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
 }
 
 button.selected {
     background-color: $bubblegum-color;
+}
+
+img {
+    width: 120px;
 }

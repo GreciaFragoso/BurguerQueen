@@ -1,1 +1,12 @@
-<p>taking-orders works!</p>
+<section class = 'father-container'>
+    <input placeholder = 'Nombre del cliente'>
+    <section class = 'buttons'>
+        <button>Desayuno</button>
+        <button>Almuerzo/Cena</button>
+        <button>Combos</button>
+        <section class = 'item' *ngFor = 'let item of items'>
+            <img>
+            <p>{{item}}</p>
+        </section>
+    </section>
+</section>
