@@ -12,6 +12,7 @@
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
+    overflow-y: auto;
 }
 
 input {
@@ -20,7 +21,14 @@ input {
     border-radius: 10px;
 }
 
-button {
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-btn {
     background-color: $box-shadow-color;
     height: 30px;
     border-radius: 10px;
@@ -31,6 +39,34 @@ button {
     font-weight: bold;
 }
 
-button.selected {
+.menu-btn.selected {
     background-color: $bubblegum-color;
+}
+
+.item {
+    background-color: white;
+    border-color: $dark-blue;
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    font-size: 0.6rem;
+}
+
+img {
+    width: 50px;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.products-list {
+    display:flex;
+    flex-direction: column;
+}
+
+mat-expansion-panel {
+    overflow-y: auto;
 }

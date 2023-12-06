@@ -6,6 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./taking-orders.component.scss']
 })
 export class TakingOrdersComponent {
-  items = [] = ['Hamburguesa sencilla', 'Hamburguesa doble', 'Papas fritas', 'Aros de cebolla', 'Agua 500 ml', 'Agua 750 ml'];
+  items =  
+  ['Hamburguesa sencilla', 'Hamburguesa doble', 'Papas fritas', 'Aros de cebolla', 'Agua 500 ml', 'Agua 750 ml'];
 
+  currentOrder: string[] = [];
+
+  addToOrder(item: string){
+    this.currentOrder.push(item);
+    console.log(this.currentOrder);
+  }
+
+  sendOrder(){
+    this.currentOrder = [];
+  }
 }

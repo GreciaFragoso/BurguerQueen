@@ -14,6 +14,7 @@ import { HeaderComponent } from './layout/header/header.component';
 // import { Ready2serveComponent } from './modules/ready2serve/pages/ready2serve/ready2serve.component';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common'; // para lazyLoading
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({ // aquí no se declaran las vistas
   declarations: [
@@ -32,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CoreModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule
   ],
   providers: [
     {

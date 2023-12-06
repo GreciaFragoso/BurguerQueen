@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TakingOrdersRoutingModule } from './taking-orders-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { TakingOrdersComponent } from './pages/taking-orders/taking-orders.component';
+import { MatExpansionModule } from '@angular/material/expansion'
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { TakingOrdersComponent } from './pages/taking-orders/taking-orders.compo
   imports: [
     CommonModule,
     TakingOrdersRoutingModule,
-    SharedModule
+    SharedModule,
+    MatExpansionModule
   ]
 })
 export class TakingOrdersModule { }

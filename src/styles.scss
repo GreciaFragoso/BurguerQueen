@@ -2,6 +2,7 @@
 $background-color: #6FDAFF;
 $box-shadow-color: #C2183F;
 $bubblegum-color: #FF0578;
+$dark-blue: #0FA6ED;
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 $regular-font: 'Open Sans';
 
@@ -17,3 +18,5 @@ body {
     align-items: center;
     justify-content: center;
 }
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

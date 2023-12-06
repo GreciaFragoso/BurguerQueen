@@ -2,14 +2,25 @@
     <input placeholder = 'Nombre del cliente'>
     <section class = 'menu'>
         <section class = 'buttons'>
-            <button>Desayuno</button>
-            <button>Almuerzo/Cena</button>
-            <button>Combos</button>
-            <section class = 'item' *ngFor = 'let item of items'>
-                <img>
+            <button class = 'menu-btn'>Desayuno</button>
+            <button class = 'menu-btn'>Almuerzo/Cena</button>
+            <button class = 'menu-btn'>Combos</button>
+        </section>
+        <section class = 'menu-items'>
+            <button class = 'item' *ngFor = 'let item of items' (click)="addToOrder(item)">
+                <img src = '../../../../../assets/burger-solid.svg'>
                 <p>{{item}}</p>
-            </section>
+            </button>
         </section>
     </section>
-    <section class = 'current-order'></section>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>Ver orden</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-panel-description>Descripción</mat-panel-description>
+        <ul class = 'products-list'>
+            <i *ngFor = 'let product of currentOrder'>{{product}}</i>
+        </ul>
+        <button (click) = 'sendOrder()'>Enviar orden</button>
+    </mat-expansion-panel>
 </section>
