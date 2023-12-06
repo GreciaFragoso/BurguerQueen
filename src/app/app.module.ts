@@ -8,10 +8,13 @@ import { AppComponent } from './app.component';
 import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
+<<<<<<< HEAD
 // import { LoginComponent } from './modules/login/pages/login/login.component';
 // import { TakingOrdersComponent } from './modules/taking-orders/pages/taking-orders/taking-orders.component';
 // import { KitchenOrdersComponent } from './modules/kitchen-orders/pages/kitchen-orders/kitchen-orders.component';
 // import { Ready2serveComponent } from './modules/ready2serve/pages/ready2serve/ready2serve.component';
+=======
+>>>>>>> 6324c99 (Fixed broken HEAD)
 import { LocationStrategy, PathLocationStrategy } from '@angular/common'; // para lazyLoading
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,10 +25,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     SkeletonComponent,
     FooterComponent,
     HeaderComponent,
+<<<<<<< HEAD
     // LoginComponent,
     // TakingOrdersComponent,
     // KitchenOrdersComponent,
     // Ready2serveComponent
+=======
+>>>>>>> 6324c99 (Fixed broken HEAD)
   ],
   imports: [
     BrowserModule,

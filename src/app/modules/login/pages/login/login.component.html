@@ -3,10 +3,29 @@
     <section class = 'form'>
         <h1>!Bienvenida/o!</h1>
         <p class = 'paragraph'>Por favor, ingresa para continuar</p>
+<<<<<<< HEAD
         <form><!-- <form [formGroup] = 'checkoutForm'> -->
             <input placeholder="Email" type = "email">
             <input placeholder="Contraseña" type = 'password'>
             <button (click) = 'Login()'>Iniciar sesión</button>
+=======
+        <form class = login-form method = 'post'><!-- <form [formGroup] = 'checkoutForm'> -->
+            <input 
+                placeholder="Email"
+                type = "email"
+                [(ngModel)] = 'email'
+                name = 'email'
+                required = 'required'
+                >
+            <input
+                placeholder="Contraseña"
+                type = 'password'
+                [(ngModel)] = 'password'
+                name = 'password'
+                required = "required"
+                >
+            <button type = 'submit' (click) = 'Login()'>Iniciar sesión</button>
+>>>>>>> 6324c99 (Fixed broken HEAD)
         </form>
     </section>
 </section>
