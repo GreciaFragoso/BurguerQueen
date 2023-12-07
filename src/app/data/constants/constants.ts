@@ -1,0 +1,4 @@
+export const api_url = 'localhost:8080';
+export const order_route = '/orders';
+export const products_route = '/products';
+export const users_route = '/users';
