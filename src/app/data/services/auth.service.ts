@@ -9,6 +9,7 @@ import { api_url, users_route, login_route } from '@data/constants/constants';
 })
 export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
+  // private authTokenKey = 'authToken';
 
   get isLoggedIn(): Observable<boolean> {
     return this.loggedIn.asObservable();
@@ -24,7 +25,11 @@ export class AuthService {
     const url = `${api_url}${login_route}`;
     
     return this.http.post(url, loginData).pipe(
-      tap(() => this.loggedIn.next(true))
+      tap((response: any) => {
+        // localStorage.setItem(this.)
+        this.loggedIn.next(true);
+      }
+      )
     );
   }
 
