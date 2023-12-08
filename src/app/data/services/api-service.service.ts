@@ -10,11 +10,18 @@ export class ApiServiceService {
 
   constructor(private http: HttpClient) { }
 
-  login(user: any): Observable<any> {
+  login(loginData: object): Observable<any> {
     // const url = new URL(api_url, users_route);
     const url = `${api_url}${users_route}`;
     console.log(url);
-    return this.http.post(url, user);
+    return this.http.post(url, loginData);
+  }
+  
+  getUsers(): Observable<any> {
+    // const url = new URL(api_url, users_route);
+    const url = `${api_url}${users_route}`;
+    console.log(url);
+    return this.http.get(url);
   }
 
   register(user: any): Observable<any> {
