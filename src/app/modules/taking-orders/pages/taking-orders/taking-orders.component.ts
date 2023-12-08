@@ -19,4 +19,8 @@ export class TakingOrdersComponent {
   sendOrder(){
     this.currentOrder = [];
   }
+
+  deleteOrderItem(item: string){
+    this.currentOrder.splice(this.currentOrder.indexOf(item), 1);
+  }
 }

@@ -19,7 +19,10 @@
         </mat-expansion-panel-header>
         <mat-panel-description>Descripción</mat-panel-description>
         <ul class = 'products-list'>
-            <i *ngFor = 'let product of currentOrder'>{{product}}</i>
+            <i *ngFor = 'let product of currentOrder'>
+                {{product}}
+                <button (click) = 'deleteOrderItem(product)'>Eliminar</button>
+            </i>
         </ul>
         <button (click) = 'sendOrder()'>Enviar orden</button>
     </mat-expansion-panel>
