@@ -8,7 +8,7 @@ import { api_url, users_route, login_route } from '@data/constants/constants';
   providedIn: 'root'
 })
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(false);
+  public loggedIn = new BehaviorSubject<boolean>(false);
   // private authTokenKey = 'authToken';
 
   get isLoggedIn(): Observable<boolean> {
@@ -25,8 +25,8 @@ export class AuthService {
     const url = `${api_url}${login_route}`;
     
     return this.http.post(url, loginData).pipe(
-      tap((response: any) => {
-        // localStorage.setItem(this.)
+      tap(() => {
+        localStorage.setItem('token', Math.random().toString());
         this.loggedIn.next(true);
       }
       )
@@ -34,6 +34,7 @@ export class AuthService {
   }
 
   logout() {
+    localStorage.removeItem('token');
     this.loggedIn.next(false);
   }
 }

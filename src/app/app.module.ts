@@ -12,6 +12,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common'; // par
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { authGuard } from '@core/auth.guard';
 
 @NgModule({ // aquí no se declaran las vistas
   declarations: [
@@ -34,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy,
-    }, // para lazyLoading
+    },
+     // para lazyLoading
   ],
   bootstrap: [AppComponent]
 })
