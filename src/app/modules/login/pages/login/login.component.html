@@ -3,25 +3,21 @@
     <section class = 'form'>
         <h1>!Bienvenida/o!</h1>
         <p class = 'paragraph'>Por favor, ingresa para continuar</p>
-        <!-- <form class = login-form method = 'post'> -->
         <form [formGroup] = 'loginForm' (ngSubmit)="onSubmit()">
             <input
                 id = 'email' 
                 placeholder="Email"
                 type = "email"
                 formControlName = "email">
-                <!-- [(ngModel)] = ''
-                name = 'email'
-                required = 'required'> -->
             <input
                 id = 'password'
                 placeholder="Contraseña"
                 type = 'password'
                 formControlName = 'password'>
-                <!-- [(ngModel)] = 'password'
-                name = 'password'
-                required = "required"> -->
             <button class = 'button' type = 'submit'>Iniciar sesión</button>
         </form>
+        <section class = 'alert'>
+            <p>alerta</p>
+        </section>
     </section>
 </section>
