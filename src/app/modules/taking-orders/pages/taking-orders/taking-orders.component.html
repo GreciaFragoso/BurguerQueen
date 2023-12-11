@@ -1,11 +1,28 @@
 <section class = 'father-container'>
     <input placeholder = 'Nombre del cliente'>
+    <section class = 'buttons'>
+        <button 
+            class = 'menu-btn'
+            (click) = 'chooseMenu()'
+            [class.selected]="selectedFilter === 'complete-menu'"
+         >Ver todo</button>
+        <button 
+            class = 'menu-btn'
+            (click) = 'chooseMenu("Breakfast")'
+            [class.selected]="selectedFilter === 'Breakfast'"
+            >Desayuno</button>
+        <button
+            class = 'menu-btn'
+            (click) = 'chooseMenu("Combos")'
+            [class.selected]="selectedFilter === 'Combos'"
+            >Combos</button>
+        <button
+            class = 'menu-btn'
+            (click) = 'chooseMenu("Beverages")'
+            [class.selected]="selectedFilter === 'Beverages'"
+            >Bebidas</button>
+    </section>
     <section class = 'menu'>
-        <section class = 'buttons'>
-            <button class = 'menu-btn'>Desayuno</button>
-            <button class = 'menu-btn'>Almuerzo/Cena</button>
-            <button class = 'menu-btn'>Combos</button>
-        </section>
         <section class = 'menu-items'>
             <button class = 'item' *ngFor = 'let item of items' (click)="addToOrder(item)">
                 <img src = '{{item.image}}'>
@@ -17,15 +34,18 @@
         <mat-expansion-panel-header>
             <mat-panel-title>Ver orden</mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-panel-description>Descripción</mat-panel-description>
-        <ul class = 'products-list'>
-            <i *ngFor = 'let product of currentOrder'>
-                {{product.name}}
-                {{product.price}}
-                <button (click) = 'deleteOrderItem(product)'>Eliminar</button>
-            </i>
-            <p>Total: {{currentTotal}}</p>
-        </ul>
+        <div class = 'mat-expansion-panel-body'>
+        <section>
+            <ul class = 'products-list'>
+                <i *ngFor = 'let product of currentOrder'>
+                    {{product.name}}
+                    {{product.price}}
+                    <button (click) = 'deleteOrderItem(product)'>Eliminar</button>
+                </i>
+                <p>Total: {{currentTotal}}</p>
+            </ul>
+        </section>
         <button (click) = 'sendOrder()'>Enviar orden</button>
+    </div>
     </mat-expansion-panel>
 </section>

@@ -8,7 +8,7 @@ import { AuthService } from '@data/services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  selectedButton: string | null = 'order';
+  selectedButton: string | null = 'home/order';
   constructor( 
     private router: Router,
     private authService: AuthService

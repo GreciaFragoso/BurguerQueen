@@ -12,7 +12,6 @@
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
-    overflow-y: auto;
 }
 
 input {
@@ -24,9 +23,9 @@ input {
 .menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    overflow:scroll;
+    overflow: scroll;
 }
 
 .menu-btn {
@@ -66,8 +65,23 @@ img {
 .products-list {
     display:flex;
     flex-direction: column;
+    // height: 250px;
+    overflow-y: scroll;
+}
+
+mat-expansion-title {
+    position: fixed;
+}
+
+mat-expansion-panel-header {
+    height: 70px;
 }
 
 mat-expansion-panel {
-    overflow-y: auto;
+    overflow-y: scroll;
+    // height: 250px;
+}
+
+.mat-expansion-panel-body {
+    height: 300px;
 }
