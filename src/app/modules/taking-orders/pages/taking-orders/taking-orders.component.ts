@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiServiceService } from '@data/services/api-service.service';
 
 @Component({
   selector: 'app-taking-orders',
@@ -10,6 +11,14 @@ export class TakingOrdersComponent {
   ['Hamburguesa sencilla', 'Hamburguesa doble', 'Papas fritas', 'Aros de cebolla', 'Agua 500 ml', 'Agua 750 ml'];
 
   currentOrder: string[] = [];
+
+  constructor(private apiService: ApiServiceService) {}
+
+  ngOnInit(){
+    this.apiService.getMenu().subscribe(data => {
+      console.log(data);
+    })
+  }
 
   addToOrder(item: string){
     this.currentOrder.push(item);

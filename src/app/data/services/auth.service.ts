@@ -9,7 +9,8 @@ import { api_url, users_route, login_route } from '@data/constants/constants';
 })
 export class AuthService {
   public loggedIn = new BehaviorSubject<boolean>(false);
-  // private authTokenKey = 'authToken';
+  private authTokenKey = 'authToken';
+  private userRole = '';
 
   get isLoggedIn(): Observable<boolean> {
     return this.loggedIn.asObservable();
@@ -25,8 +26,10 @@ export class AuthService {
     const url = `${api_url}${login_route}`;
     
     return this.http.post(url, loginData).pipe(
-      tap(() => {
-        localStorage.setItem('token', Math.random().toString());
+      tap((response: any) => {
+        console.log(response);
+        localStorage.setItem(this.authTokenKey, response.accessToken);
+        localStorage.setItem(this.userRole, response.user.role);
         this.loggedIn.next(true);
       }
       )
@@ -34,7 +37,11 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem(this.authTokenKey);
     this.loggedIn.next(false);
+  }
+
+  getUserToken(): string | null {
+    return localStorage.getItem(this.authTokenKey);
   }
 }

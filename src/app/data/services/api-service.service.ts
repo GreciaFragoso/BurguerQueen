@@ -1,32 +1,32 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'
 import { api_url, order_route, products_route, users_route } from '../constants/constants'
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
 
-  constructor(private http: HttpClient) { }
-
-  login(loginData: object): Observable<any> {
-    // const url = new URL(api_url, users_route);
-    const url = `${api_url}${users_route}`;
-    console.log(url);
-    return this.http.post(url, loginData);
-  }
+  constructor(private http: HttpClient, private authService: AuthService) { }
   
-  getUsers(): Observable<any> {
-    // const url = new URL(api_url, users_route);
-    const url = `${api_url}${users_route}`;
-    console.log(url);
-    return this.http.get(url);
+  getHeaders(): HttpHeaders {
+    const authToken = this.authService.getUserToken();
+
+    return new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    });
   }
 
-  register(user: any): Observable<any> {
-    const url = `${api_url}${users_route}`;
-    console.log(url);
-    return this.http.post(url, user)
-  } 
+
+  getMenu(): Observable<any> {
+    // const url = new URL(api_url, users_route);
+    const url = `${api_url}${products_route}`;
+     
+    const headers = this.getHeaders();
+    return this.http.get(url, {headers: headers});
+  }
+
 }
