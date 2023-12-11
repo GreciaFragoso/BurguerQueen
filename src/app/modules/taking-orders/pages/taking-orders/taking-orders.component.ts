@@ -7,29 +7,36 @@ import { ApiServiceService } from '@data/services/api-service.service';
   styleUrls: ['./taking-orders.component.scss']
 })
 export class TakingOrdersComponent {
-  items =  
-  ['Hamburguesa sencilla', 'Hamburguesa doble', 'Papas fritas', 'Aros de cebolla', 'Agua 500 ml', 'Agua 750 ml'];
-
-  currentOrder: string[] = [];
+  items: any;
+  currentOrder: any = [];
+  currentTotal: number = 0;
 
   constructor(private apiService: ApiServiceService) {}
 
   ngOnInit(){
-    this.apiService.getMenu().subscribe(data => {
-      console.log(data);
-    })
+    this.getMenuProducts();
   }
 
-  addToOrder(item: string){
+  getMenuProducts() {
+    this.apiService.getMenu().subscribe((menu) => {
+      console.log(menu)
+      this.items = menu;
+    })
+  }
+  
+  addToOrder(item: any){
     this.currentOrder.push(item);
     console.log(this.currentOrder);
+    this.currentTotal += item.price;
   }
 
   sendOrder(){
     this.currentOrder = [];
   }
 
-  deleteOrderItem(item: string){
+  deleteOrderItem(item: any){
     this.currentOrder.splice(this.currentOrder.indexOf(item), 1);
+    this.currentTotal -= item.price;
+    console.log(this.currentOrder)
   }
 }

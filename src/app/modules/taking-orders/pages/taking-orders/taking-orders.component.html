@@ -8,8 +8,8 @@
         </section>
         <section class = 'menu-items'>
             <button class = 'item' *ngFor = 'let item of items' (click)="addToOrder(item)">
-                <img src = '../../../../../assets/burger-solid.svg'>
-                <p>{{item}}</p>
+                <img src = '{{item.image}}'>
+                <p>{{item.name}}</p>
             </button>
         </section>
     </section>
@@ -20,9 +20,11 @@
         <mat-panel-description>Descripción</mat-panel-description>
         <ul class = 'products-list'>
             <i *ngFor = 'let product of currentOrder'>
-                {{product}}
+                {{product.name}}
+                {{product.price}}
                 <button (click) = 'deleteOrderItem(product)'>Eliminar</button>
             </i>
+            <p>Total: {{currentTotal}}</p>
         </ul>
         <button (click) = 'sendOrder()'>Enviar orden</button>
     </mat-expansion-panel>
