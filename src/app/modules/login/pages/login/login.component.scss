@@ -1,5 +1,5 @@
 @import '../../../../../styles.scss';
-
+ 
 .father-container {
     background-color: $background-color;
     display: grid;
@@ -70,4 +70,19 @@ img {
     max-width: 180px;
     height: 50px;
     background-color: lightblue;
+}
+
+@media (min-width: 768px){
+    
+    .father-container {
+        background-color: $background-color;
+        display: grid;
+        grid-template-rows: 1fr 6fr;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
 }

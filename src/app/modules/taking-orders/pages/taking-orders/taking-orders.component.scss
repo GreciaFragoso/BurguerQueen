@@ -18,6 +18,7 @@ input {
     width: 200px;
     height: 20px;
     border-radius: 10px;
+    padding-left: 15px;
 }
 
 .menu {
@@ -53,7 +54,7 @@ input {
 }
 
 .product-img {
-    width: 50px;
+    width: 40px;
 }
 
 .menu-items {
@@ -77,19 +78,61 @@ input {
     border: none;
 }
 
-mat-expansion-title {
-    position: fixed;
-}
+// mat-expansion-title {
+//     position: fixed;
+// }
 
-mat-expansion-panel-header {
-    height: 70px;
-}
+// mat-expansion-panel-header {
+//     height: 70px;
+// }
 
-mat-expansion-panel {
-    overflow-y: scroll;
-    // height: 250px;
-}
+// mat-expansion-panel {
+//     overflow-y: scroll;
+//     // height: 250px;
+// }
 
-.mat-expansion-panel-body {
-    height: 300px;
+// .mat-expansion-panel-body {
+//     height: 300px;
+// }
+
+@media (min-width: 720px) {
+    .father-container {
+        height: 40vh;
+        width: 80vw;
+        background-color: white;
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        padding-top: 15px;
+    }
+
+    .menu {
+        height: 400px;
+    }
+
+    .menu-btn {
+        background-color: $box-shadow-color;
+        height: 35px;
+        width: 70px;
+        border-radius: 10px;
+        font-size: 0.7rem;
+        margin: 5px;
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .item {
+        background-color: white;
+        border-color: $dark-blue;
+        border-radius: 10px;
+        width: 100px;
+        height: 80px;
+        font-size: 0.7rem;
+    }
+    // .column-2 {
+    //     padding-top: 50px;
+    // }
 }

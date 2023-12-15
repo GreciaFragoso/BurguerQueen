@@ -1,36 +1,39 @@
 <section class = 'father-container'>
-    <input placeholder = 'Nombre del cliente'>
-    <section class = 'buttons'>
-        <button 
-            class = 'menu-btn'
-            (click) = 'chooseMenu()'
-            [class.selected]="selectedFilter === 'complete-menu'"
-         >Ver todo</button>
-        <button 
-            class = 'menu-btn'
-            (click) = 'chooseMenu("Breakfast")'
-            [class.selected]="selectedFilter === 'Breakfast'"
-            >Desayuno</button>
-        <button
-            class = 'menu-btn'
-            (click) = 'chooseMenu("Combos")'
-            [class.selected]="selectedFilter === 'Combos'"
-            >Combos</button>
-        <button
-            class = 'menu-btn'
-            (click) = 'chooseMenu("Beverages")'
-            [class.selected]="selectedFilter === 'Beverages'"
-            >Bebidas</button>
-    </section>
-    <section class = 'menu'>
-        <section class = 'menu-items'>
-            <button class = 'item' *ngFor = 'let item of items' (click)="addToOrder(item)">
-                <img class = 'product-img' src = '{{item.image}}'>
-                <p>{{item.name}}</p>
-            </button>
+    <div class = 'column-1'>
+        <input placeholder = 'Nombre del cliente'>
+        <section class = 'buttons'>
+            <button 
+                class = 'menu-btn'
+                (click) = 'chooseMenu()'
+                [class.selected]="selectedFilter === 'complete-menu'"
+            >Ver todo</button>
+            <button 
+                class = 'menu-btn'
+                (click) = 'chooseMenu("Breakfast")'
+                [class.selected]="selectedFilter === 'Breakfast'"
+                >Desayuno</button>
+            <button
+                class = 'menu-btn'
+                (click) = 'chooseMenu("Combos")'
+                [class.selected]="selectedFilter === 'Combos'"
+                >Combos</button>
+            <button
+                class = 'menu-btn'
+                (click) = 'chooseMenu("Beverages")'
+                [class.selected]="selectedFilter === 'Beverages'"
+                >Bebidas</button>
         </section>
-    </section>
-    <mat-expansion-panel>
+        <section class = 'menu'>
+            <section class = 'menu-items'>
+                <button class = 'item' *ngFor = 'let item of items' (click)="addToOrder(item)">
+                    <img class = 'product-img' src = '{{item.image}}'>
+                    <p>{{item.name}}</p>
+                </button>
+            </section>
+        </section>
+    </div>
+    <div class = column-2>
+    <mat-expansion-panel class = 'column-2'>
         <mat-expansion-panel-header>
             <mat-panel-title>Ver orden</mat-panel-title>
         </mat-expansion-panel-header>
@@ -50,4 +53,5 @@
         <button (click) = 'sendOrder()'>Enviar orden</button>
     </div>
     </mat-expansion-panel>
+    </div>
 </section>
