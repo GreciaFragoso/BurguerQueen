@@ -52,7 +52,7 @@ input {
     font-size: 0.6rem;
 }
 
-img {
+.product-img {
     width: 50px;
 }
 
@@ -67,6 +67,14 @@ img {
     flex-direction: column;
     // height: 250px;
     overflow-y: scroll;
+}
+
+.delete-img {
+    width: 15px;
+}
+
+.delete-btn {
+    border: none;
 }
 
 mat-expansion-title {

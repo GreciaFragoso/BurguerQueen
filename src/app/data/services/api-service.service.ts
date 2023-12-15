@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'
 import { api_url, order_route, products_route, users_route } from '../constants/constants'
 import { AuthService } from './auth.service';
+import { Order } from '@data/interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,12 @@ export class ApiServiceService {
      
     const headers = this.getHeaders();
     return this.http.get(url, {headers: headers});
+  }
+
+  getOrders(): Observable<Order[]> {
+    const url = `${api_url}${order_route}`;
+    const headers = this.getHeaders();
+    return this.http.get<Order[]>(url, {headers: headers})
   }
 
 }

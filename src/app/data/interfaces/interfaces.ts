@@ -6,3 +6,15 @@ export interface ProductInfo {
     price: number;
     type: string;
 }
+
+export interface Order {
+    client: string;
+    dataEntry: string;
+    id: number;
+    products: {
+        qty: number;
+        product: ProductInfo;
+    }[];
+    status: string;
+    userId: number;
+}

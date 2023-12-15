@@ -1,1 +1,13 @@
 <p>ready2serve works!</p>
+<section class = 'father-container'>
+    <ul *ngFor = 'let order of currentOrders'>
+        <i>{{order.id}}</i>
+        <i>{{order.client}}</i>
+        <i>
+            <ul *ngFor = 'let product of order.products'>
+                <i>{{product.product.name}}</i>
+                <i>{{product.product.price}}</i>
+            </ul>
+        </i>
+    </ul>
+</section>
