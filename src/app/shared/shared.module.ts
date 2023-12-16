@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { TakingOrdersComponent } from '@modules/taking-orders/pages/taking-orders/taking-orders.component';
+import { FatherContainerComponent } from './components/father-container/father-container.component';
+import { ButtonComponent } from './components/button/button.component';
 
 
 
 @NgModule({
-  declarations: [ ],
+  declarations: [ 
+    FatherContainerComponent, ButtonComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,6 +25,8 @@ import { TakingOrdersComponent } from '@modules/taking-orders/pages/taking-order
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    FatherContainerComponent,
+    ButtonComponent,
   ]
 })
 export class SharedModule { }
