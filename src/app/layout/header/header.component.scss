@@ -6,7 +6,7 @@ header {
     flex-direction: row;
 }
 
-button {
+.btn {
     background-color: $box-shadow-color;
     height: 30px;
     border-radius: 10px;
@@ -17,8 +17,20 @@ button {
     font-weight: bold;
 }
 
-button.selected {
+.btn.selected {
     background-color: $bubblegum-color;
+}
+
+.logout {
+    background-color: white;
+    color: $dark-blue;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 0.5rem;
+    margin: 5px;
+    padding: 5px;
+    font-weight: bold;
+    border: 2px solid $dark-blue;
 }
 
 img {

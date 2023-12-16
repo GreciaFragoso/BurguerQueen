@@ -1,26 +1,61 @@
 <section class = 'father-container'>
-    <input placeholder = 'Nombre del cliente'>
-    <section class = 'menu'>
+    <div class = 'column-1'>
+        <input
+        placeholder = 'Nombre del cliente'
+        [(ngModel)] = 'inputContent'
+        #nombreInput>
         <section class = 'buttons'>
-            <button class = 'menu-btn'>Desayuno</button>
-            <button class = 'menu-btn'>Almuerzo/Cena</button>
-            <button class = 'menu-btn'>Combos</button>
+            <button 
+                class = 'menu-btn'
+                (click) = 'chooseMenu()'
+                [class.selected]="selectedFilter === 'complete-menu'"
+            >Ver todo</button>
+            <button 
+                class = 'menu-btn'
+                (click) = 'chooseMenu("Breakfast")'
+                [class.selected]="selectedFilter === 'Breakfast'"
+                >Desayuno</button>
+            <button
+                class = 'menu-btn'
+                (click) = 'chooseMenu("Combos")'
+                [class.selected]="selectedFilter === 'Combos'"
+                >Combos</button>
+            <button
+                class = 'menu-btn'
+                (click) = 'chooseMenu("Beverages")'
+                [class.selected]="selectedFilter === 'Beverages'"
+                >Bebidas</button>
+            <div class = 'finish-line'></div>
         </section>
-        <section class = 'menu-items'>
-            <button class = 'item' *ngFor = 'let item of items' (click)="addToOrder(item)">
-                <img src = '../../../../../assets/burger-solid.svg'>
-                <p>{{item}}</p>
-            </button>
+        <section class = 'menu'>
+            <section class = 'menu-items'>
+                <button class = 'item' *ngFor = 'let item of items' (click)="addToOrder(item)">
+                    <img class = 'product-img' src = '{{item.image}}'>
+                    <p>{{item.name}}</p>
+                </button>
+            </section>
         </section>
-    </section>
-    <mat-expansion-panel>
+    </div>
+    <div class = column-2>
+    <mat-expansion-panel class = 'column-2'>
         <mat-expansion-panel-header>
             <mat-panel-title>Ver orden</mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-panel-description>Descripción</mat-panel-description>
-        <ul class = 'products-list'>
-            <i *ngFor = 'let product of currentOrder'>{{product}}</i>
-        </ul>
+        <div class = 'mat-expansion-panel-body'>
+        <section>
+            <ul class = 'products-list'>
+                <i *ngFor = 'let product of currentOrder'>
+                    {{product.name}}
+                    {{product.price}}
+                    <button class = 'delete-btn' (click) = 'deleteOrderItem(product)'>
+                        <img class = 'delete-img' src = '../../../../../assets/trash-solid.svg'>
+                    </button>
+                </i>
+                <p>Total: {{currentTotal}}</p>
+            </ul>
+        </section>
         <button (click) = 'sendOrder()'>Enviar orden</button>
+    </div>
     </mat-expansion-panel>
+    </div>
 </section>

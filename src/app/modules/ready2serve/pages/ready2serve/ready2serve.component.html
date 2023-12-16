@@ -1,1 +1,33 @@
-<p>ready2serve works!</p>
+
+<section class = 'father-container'>
+    <div class = 'finish-line'></div>
+    <table class = 'table'>
+        <thead>
+            <tr class = 'line'>
+                <th>Número</th>
+                <th>Cliente</th>
+                <th>Productos</th>
+                <th>Entrada</th>
+                <th>Estatus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class = 'line' *ngFor = 'let order of currentOrders'>
+                <td>{{order.id}}</td>
+                <td>{{order.client}}</td>
+                <td>
+                    <ul *ngFor = 'let product of order.products'>
+                        <i>{{product.product.name}}</i>
+                    </ul>
+                </td>
+                <td>{{order.dataEntry}}</td>
+                <td>
+                    <button
+                        class = 'status'
+                        [ngClass]="{'delivered': order.status === 'delivered'}"
+                        >{{toUpperCase(order.status)}}</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,62 @@
+@import '../../../../../styles.scss';
+
+* {
+    font-size: 0.8rem;
+}
+
+.father-container {
+    background-color: $background-color;
+    display: grid;
+    grid-template-rows: 1fr 20fr;
+    // display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+    width: 100%;
+    gap: 20px;
+}
+
+.status {
+    border-color: #FFFF00;
+    background: #FFFF00;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.delivered {
+    border-color: #18DF18;
+    background: #18DF18;
+    color: white;
+}
+
+.table tr th,
+.table tr td {
+    border: 2px solid #FF0578;
+    padding: 5px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.finish-line {
+    background-image: url('../../../../../assets/finishline.png');
+    height: 20px;
+    width: 100%;
+    background-repeat: repeat-x;
+    background-size: 100px;
+}
+
+@media (min-width: 720px) {
+    .father-container {
+        height: 40vh;
+        width: 80vw;
+        background-color: white;
+        // display: grid;
+        // grid-template-columns: 3fr 2fr;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        padding-top: 15px;
+    }
+}

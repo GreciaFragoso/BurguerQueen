@@ -3,22 +3,21 @@
     <section class = 'form'>
         <h1>!Bienvenida/o!</h1>
         <p class = 'paragraph'>Por favor, ingresa para continuar</p>
-        <form class = login-form method = 'post'><!-- <form [formGroup] = 'checkoutForm'> -->
-            <input 
+        <form [formGroup] = 'loginForm' (ngSubmit)="onSubmit()">
+            <input
+                id = 'email' 
                 placeholder="Email"
                 type = "email"
-                [(ngModel)] = 'email'
-                name = 'email'
-                required = 'required'
-                >
+                formControlName = "email">
             <input
+                id = 'password'
                 placeholder="Contraseña"
                 type = 'password'
-                [(ngModel)] = 'password'
-                name = 'password'
-                required = "required"
-                >
-            <button type = 'submit' (click) = 'Login()'>Iniciar sesión</button>
+                formControlName = 'password'>
+            <button class = 'button' type = 'submit'>Iniciar sesión</button>
         </form>
+        <section class = 'alert'>
+            <p>alerta</p>
+        </section>
     </section>
 </section>

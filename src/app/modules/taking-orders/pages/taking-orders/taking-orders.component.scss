@@ -12,20 +12,21 @@
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
-    overflow-y: auto;
 }
 
 input {
     width: 200px;
     height: 20px;
     border-radius: 10px;
+    padding-left: 15px;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    overflow: scroll;
 }
 
 .menu-btn {
@@ -52,8 +53,8 @@ input {
     font-size: 0.6rem;
 }
 
-img {
-    width: 50px;
+.product-img {
+    width: 40px;
 }
 
 .menu-items {
@@ -65,8 +66,78 @@ img {
 .products-list {
     display:flex;
     flex-direction: column;
+    // height: 250px;
+    overflow-y: scroll;
 }
 
-mat-expansion-panel {
-    overflow-y: auto;
+.delete-img {
+    width: 15px;
+}
+
+.delete-btn {
+    border: none;
+}
+
+// mat-expansion-title {
+//     position: fixed;
+// }
+
+// mat-expansion-panel-header {
+//     height: 70px;
+// }
+
+// mat-expansion-panel {
+//     overflow-y: scroll;
+//     // height: 250px;
+// }
+
+// .mat-expansion-panel-body {
+//     height: 300px;
+// }
+
+@media (min-width: 720px) {
+    .father-container {
+        height: 40vh;
+        width: 80vw;
+        background-color: white;
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        padding-top: 15px;
+    }
+
+    .menu {
+        height: 40%;
+    }
+
+    .menu-btn {
+        background-color: $box-shadow-color;
+        height: 35px;
+        width: 70px;
+        border-radius: 10px;
+        font-size: 0.7rem;
+        margin: 5px;
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .item {
+        background-color: white;
+        border-color: $dark-blue;
+        border-radius: 10px;
+        width: 100px;
+        height: 80px;
+        font-size: 0.7rem;
+    }
+
+    .finish-line {
+        background-image: url('../../../../../assets/finishline.png');
+        height: 20px;
+        width: 100%;
+        background-repeat: repeat-x;
+        background-size: 100px;
+    }
 }

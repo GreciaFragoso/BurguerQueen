@@ -5,6 +5,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FatherContainerComponent } from '@shared/components/father-container/father-container.component';
 // revisar porque aquí había una importación de componentes
 
 

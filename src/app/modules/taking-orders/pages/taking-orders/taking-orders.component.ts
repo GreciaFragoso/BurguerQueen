@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-<<<<<<< HEAD
-=======
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
->>>>>>> 6324c99 (Fixed broken HEAD)
+import { Component, ViewChild } from '@angular/core';
+import { ProductInfo } from '@data/interfaces/interfaces';
+import { ApiServiceService } from '@data/services/api-service.service';
+import { NgModel } from '@angular/forms';
+import { Order } from '@data/interfaces/interfaces';
 
 @Component({
   selector: 'app-taking-orders',
@@ -10,32 +10,59 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./taking-orders.component.scss']
 })
 export class TakingOrdersComponent {
-  items =  
-  ['Hamburguesa sencilla', 'Hamburguesa doble', 'Papas fritas', 'Aros de cebolla', 'Agua 500 ml', 'Agua 750 ml'];
+  items: ProductInfo[] = [];
+  currentOrder: ProductInfo[] = [];
+  currentTotal: number = 0;
+  selectedFilter: string = 'complete-menu'
+  client: string = '';
+  dataEntry: string = '';
+  id: number = 0;
+  products: Object[] = [];
+  status: string = 'Pending'
+  userId: number = 0;
+  inputContent: string = '';
 
-<<<<<<< HEAD
-  currentOrder: string[] = [];
+  constructor(private apiService: ApiServiceService) {}
 
-  addToOrder(item: string){
-    this.currentOrder.push(item);
-=======
-  currentOrder: any = { client: '', order: [] };
+  @ViewChild('nombreInput', { static: false }) nombreInput!: NgModel;
 
-  getClient(client: string){
-    this.currentOrder.client = client;
+  ngOnInit(){
+    this.chooseMenu();
+  }
+
+  chooseMenu(type?: string){
+    this.getMenuProducts(type);
+  }
+
+  getMenuProducts(type?: string) {
+    this.apiService.getMenu().subscribe((menu) => {
+      if(type){
+        this.items = menu.filter((item: {type: string }) => item.type === type);
+        this.selectedFilter = type;
+      } else {
+        this.items = menu;
+        this.selectedFilter = 'complete-menu';
+      }
+    })
   }
   
-  addToOrder(item: string){
-    this.currentOrder.order.push(item);
->>>>>>> 6324c99 (Fixed broken HEAD)
+  addToOrder(item: ProductInfo){
+    this.currentOrder.push(item);
     console.log(this.currentOrder);
+    this.currentTotal += item.price;
   }
 
   sendOrder(){
-<<<<<<< HEAD
+    const newOrder: Order = {} as Order;
+    newOrder.client = this.inputContent;
+    newOrder.status = 'Pending'
     this.currentOrder = [];
-=======
-    this.currentOrder = { client: '', order: [] };
->>>>>>> 6324c99 (Fixed broken HEAD)
+    this.currentTotal = 0;
+  }
+
+  deleteOrderItem(item: ProductInfo){
+    this.currentOrder.splice(this.currentOrder.indexOf(item), 1);
+    this.currentTotal -= item.price;
+    console.log(this.currentOrder)
   }
 }
