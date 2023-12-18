@@ -17,11 +17,8 @@ export class TakingOrdersComponent {
   currentTotal: number = 0;
   selectedFilter: string = 'complete-menu'
   client: string = '';
-  dataEntry: string = '2023-12-18 10:18';
   id: number = 4;
-  // products: Object[] = [];
-  status: string = 'Pending'
-  userId: number = 0;
+
   inputContent: string = '';
 
   constructor(private apiService: ApiServiceService, private authService: AuthService) {}
@@ -68,9 +65,11 @@ export class TakingOrdersComponent {
   }
 
   sendOrder(){
+    const currentDate = new Date();
+    const formatedDate = currentDate.toISOString();
     const newOrder: Order = {
       client: this.inputContent,
-      dataEntry: this.dataEntry,
+      dataEntry: formatedDate,
       id: this.id,
       products: this.transformOrderFormat(),
       status: 'Pending',
@@ -84,14 +83,7 @@ export class TakingOrdersComponent {
       alert('No has seleccionado ningún producto');
       return;
     }
-    // as Order;
-    // newOrder.client = this.inputContent;
-    // newOrder.dataEntry = this.dataEntry;
-    // newOrder.id = this.id;
-    // newOrder.products = this.transformOrderFormat();
-    // newOrder.status = 'Pending';
-    // newOrder.userId = 2;
-    console.log(newOrder);
+
     this.apiService.sendOrder(newOrder).subscribe(
       () => {
       console.log('La orden se envió exitosamente')
