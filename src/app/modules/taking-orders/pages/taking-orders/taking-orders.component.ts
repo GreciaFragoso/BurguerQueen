@@ -17,7 +17,7 @@ export class TakingOrdersComponent {
   currentTotal: number = 0;
   selectedFilter: string = 'complete-menu'
   client: string = '';
-  id: number = 4;
+  id: number = 0;
 
   inputContent: string = '';
 
@@ -39,6 +39,7 @@ export class TakingOrdersComponent {
         this.items = menu.filter((item: {type: string }) => item.type === type);
         this.selectedFilter = type;
       } else {
+        console.log(menu);
         this.items = menu;
         this.selectedFilter = 'complete-menu';
       }
@@ -67,32 +68,37 @@ export class TakingOrdersComponent {
   sendOrder(){
     const currentDate = new Date();
     const formatedDate = currentDate.toISOString();
-    const newOrder: Order = {
-      client: this.inputContent,
-      dataEntry: formatedDate,
-      id: this.id,
-      products: this.transformOrderFormat(),
-      status: 'Pending',
-      userId: 2
-    } 
 
-    if(newOrder.client === ''){
-      alert('Por favor, coloca el nombre del cliente');
-      return;
-    } else if (newOrder.products.length === 0) {
-      alert('No has seleccionado ningún producto');
-      return;
-    }
+    this.apiService.getOrderId().subscribe((orderId: number) => {
+      const newOrder: Order = {
+        client: this.inputContent,
+        dataEntry: formatedDate,
+        id: this.id,
+        products: this.transformOrderFormat(),
+        status: 'Pending',
+        userId: 2
+      } 
+  
+      if(newOrder.client === ''){
+        alert('Por favor, coloca el nombre del cliente');
+        return;
+      } else if (newOrder.products.length === 0) {
+        alert('No has seleccionado ningún producto');
+        return;
+      }
 
-    this.apiService.sendOrder(newOrder).subscribe(
-      () => {
-      console.log('La orden se envió exitosamente')
-      this.currentOrder = [];
-      this.currentTotal = 0;
-    }, 
-      (error) => {
-      console.error('Error al realizar la solicitud', error.message);
-    });
+      this.apiService.sendOrder(newOrder).subscribe(
+        () => {
+        console.log('La orden se envió exitosamente')
+        this.currentOrder = [];
+        this.currentTotal = 0;
+      }, 
+        (error) => {
+        console.error('Error al realizar la solicitud', error.message);
+      });
+    }, error => {
+      console.error('Error al obtener orderId', error.message)
+    })
   }
 
   deleteOrderItem(item: ProductInfo){
