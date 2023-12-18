@@ -18,6 +18,7 @@
                 <td>
                     <ul *ngFor = 'let product of order.products'>
                         <i>{{product.product.name}}</i>
+                        <i>({{product.qty}})</i>
                     </ul>
                 </td>
                 <td>{{order.dataEntry}}</td>

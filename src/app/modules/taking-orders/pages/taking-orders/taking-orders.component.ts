@@ -18,7 +18,7 @@ export class TakingOrdersComponent {
   selectedFilter: string = 'complete-menu'
   client: string = '';
   dataEntry: string = '2023-12-18 10:18';
-  id: number = 3;
+  id: number = 4;
   // products: Object[] = [];
   status: string = 'Pending'
   userId: number = 0;
@@ -76,6 +76,14 @@ export class TakingOrdersComponent {
       status: 'Pending',
       userId: 2
     } 
+
+    if(newOrder.client === ''){
+      alert('Por favor, coloca el nombre del cliente');
+      return;
+    } else if (newOrder.products.length === 0) {
+      alert('No has seleccionado ningún producto');
+      return;
+    }
     // as Order;
     // newOrder.client = this.inputContent;
     // newOrder.dataEntry = this.dataEntry;
