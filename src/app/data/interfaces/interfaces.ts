@@ -11,10 +11,12 @@ export interface Order {
     client: string;
     dataEntry: string;
     id: number;
-    products: {
-        qty: number;
-        product: ProductInfo;
-    }[];
+    products: OrderInfo[];
     status: string;
     userId: number;
+}
+
+export interface OrderInfo {
+    qty: number;
+    product: ProductInfo;
 }

@@ -39,7 +39,8 @@ export class ApiServiceService {
   sendOrder(order: Order){
     const url = `${api_url}${order_route}`;
     const headers = this.getHeaders();
-    return this.http.put(url, order, {headers: headers})
+    console.log(order)
+    return this.http.post(url, order, {headers: headers})
     .pipe(
       catchError((error: any) => {
         console.error('Error al enviar la orden',error)

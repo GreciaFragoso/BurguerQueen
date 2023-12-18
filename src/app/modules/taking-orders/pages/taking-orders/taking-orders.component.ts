@@ -2,7 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { ProductInfo } from '@data/interfaces/interfaces';
 import { ApiServiceService } from '@data/services/api-service.service';
 import { NgModel } from '@angular/forms';
-import { Order } from '@data/interfaces/interfaces';
+import { Order, OrderInfo } from '@data/interfaces/interfaces';
+import { AuthService } from '@data/services/auth.service';
 
 @Component({
   selector: 'app-taking-orders',
@@ -12,17 +13,18 @@ import { Order } from '@data/interfaces/interfaces';
 export class TakingOrdersComponent {
   items: ProductInfo[] = [];
   currentOrder: ProductInfo[] = [];
+  orderInfo: OrderInfo[] = [];
   currentTotal: number = 0;
   selectedFilter: string = 'complete-menu'
   client: string = '';
-  dataEntry: string = '';
-  id: number = 0;
-  products: Object[] = [];
+  dataEntry: string = '2023-12-18 10:18';
+  id: number = 3;
+  // products: Object[] = [];
   status: string = 'Pending'
   userId: number = 0;
   inputContent: string = '';
 
-  constructor(private apiService: ApiServiceService) {}
+  constructor(private apiService: ApiServiceService, private authService: AuthService) {}
 
   @ViewChild('nombreInput', { static: false }) nombreInput!: NgModel;
 
@@ -52,12 +54,45 @@ export class TakingOrdersComponent {
     this.currentTotal += item.price;
   }
 
+  transformOrderFormat(){
+    return this.currentOrder.reduce((acc, prod) => {
+      const existentProduct = acc.find((p) => p.product.id === prod.id);
+      if(existentProduct){
+        existentProduct.qty++;
+      } else {
+        acc.push({ qty: 1, product: prod})
+      }
+
+      return acc;
+    }, [] as OrderInfo[]);
+  }
+
   sendOrder(){
-    const newOrder: Order = {} as Order;
-    newOrder.client = this.inputContent;
-    newOrder.status = 'Pending'
-    this.currentOrder = [];
-    this.currentTotal = 0;
+    const newOrder: Order = {
+      client: this.inputContent,
+      dataEntry: this.dataEntry,
+      id: this.id,
+      products: this.transformOrderFormat(),
+      status: 'Pending',
+      userId: 2
+    } 
+    // as Order;
+    // newOrder.client = this.inputContent;
+    // newOrder.dataEntry = this.dataEntry;
+    // newOrder.id = this.id;
+    // newOrder.products = this.transformOrderFormat();
+    // newOrder.status = 'Pending';
+    // newOrder.userId = 2;
+    console.log(newOrder);
+    this.apiService.sendOrder(newOrder).subscribe(
+      () => {
+      console.log('La orden se envió exitosamente')
+      this.currentOrder = [];
+      this.currentTotal = 0;
+    }, 
+      (error) => {
+      console.error('Error al realizar la solicitud', error.message);
+    });
   }
 
   deleteOrderItem(item: ProductInfo){
